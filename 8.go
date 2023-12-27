@@ -19,7 +19,7 @@ func task8(n int64, pos uint, bit bool) (int64, error) {
 	}
 
 	// 63 это знак числа, биты начинают идти в обратную сторону, так что для простоты мы просто сразу меняем знак int значению и возврощаем его
-	if pos == 63 {
+	if pos == 63 && bit {
 		return -n, nil
 	}
 
@@ -37,7 +37,6 @@ func task8(n int64, pos uint, bit bool) (int64, error) {
 	  +---+---+---+---+
 	*/
 	n &= mask
-	fmt.Printf("%b\n", n)
 
 	// и наконец добaвляем нашу потенциальную единичку
 	/*
