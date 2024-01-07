@@ -6,6 +6,10 @@ import "fmt"
 Дана переменная int64. Разработать программу которая устанавливает i-й бит в 1 или 0.
 */
 
+func main() {
+	fmt.Println(task8(0, 63, true))
+}
+
 // для примера будем разбирать с такими значениями(n = 3, pos = 2, bit = true (true - 1, false - 0))
 func task8(n int64, pos uint, bit bool) (int64, error) {
 	if pos > 63 {
@@ -16,11 +20,6 @@ func task8(n int64, pos uint, bit bool) (int64, error) {
 	var bitValue uint8
 	if bit {
 		bitValue = 1
-	}
-
-	// 63 это знак числа, биты начинают идти в обратную сторону, так что для простоты мы просто сразу меняем знак int значению и возврощаем его
-	if pos == 63 && bit {
-		return -n, nil
 	}
 
 	// делаем маску что бы удалить бит, который мы собираеся заменить
